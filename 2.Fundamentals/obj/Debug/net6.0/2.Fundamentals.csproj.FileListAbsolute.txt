@@ -1,0 +1,14 @@
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\bin\Debug\net6.0\2.Fundamentals.exe
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\bin\Debug\net6.0\2.Fundamentals.deps.json
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\bin\Debug\net6.0\2.Fundamentals.runtimeconfig.json
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\bin\Debug\net6.0\2.Fundamentals.dll
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\bin\Debug\net6.0\2.Fundamentals.pdb
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.AssemblyInfoInputs.cache
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.AssemblyInfo.cs
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.csproj.CoreCompileInputs.cache
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.dll
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\refint\2.Fundamentals.dll
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.pdb
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\2.Fundamentals.genruntimeconfig.cache
+C:\Users\Djoek\Documents\Courses\CSharpMasterclass\2.Fundamentals\obj\Debug\net6.0\ref\2.Fundamentals.dll
