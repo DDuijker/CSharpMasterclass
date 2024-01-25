@@ -5,13 +5,36 @@
     {
         static void Main(string[] args)
         {
-            Calculator calculator = new Calculator();
-            Console.WriteLine("Hello! I have made a calculator. Press 'S' to start: ");
-            if (Console.ReadLine().ToLower() == "s")
+            Console.WriteLine("Hello! I have made a calculator and a TODO list application.");
+            while (true)
             {
-                calculator.Start();
-            }
+                Calculator calculator = new Calculator();
+                ToDoList toDoList = new ToDoList();
+                Console.WriteLine(
+                    "\nPress 'C' to start the calculator:" +
+                    "\nPress 'T' to start the TODO list application:" +
+                    "\nType 'exit' to exit the application");
+                string userInput = Console.ReadLine().ToLower();
+
+                if (userInput == "exit")
+                {
+                    break;
+                }
+                else if (userInput == "c")
+                {
+                    calculator.Start();
+                }
+                else if (userInput == "t")
+                {
+                    toDoList.Start();
+                }         
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                    continue;
+                }
             Console.ReadKey();
+            }
         }
     }
 }

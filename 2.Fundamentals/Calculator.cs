@@ -12,7 +12,7 @@ namespace _2.Fundamentals
         {
             return a + b;
         }
- 
+
         public int Subtract(int a, int b)
         {
             return a - b;
@@ -38,22 +38,24 @@ namespace _2.Fundamentals
 
             string userInput = Console.ReadLine().ToLower();
             //handle the input 
-            if (userInput == "a")
+            switch (userInput)
             {
-                Console.WriteLine($"{firstNumber} + {secondNumber} =  {Add(firstNumber, secondNumber)}");
-            }
-            else if (userInput == "s")
-            {
-                Console.WriteLine($"{firstNumber} - {secondNumber} =  {Subtract(firstNumber, secondNumber)}");
-            }
-            else if (userInput == "m")
-            {
-                Console.WriteLine($"{firstNumber} * {secondNumber} =  {Multiply(firstNumber, secondNumber)}");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Input");
-            }
+                case "a":
+                        Console.WriteLine($"{firstNumber} + {secondNumber} =  {Add(firstNumber, secondNumber)}");
+                        break;
+                case "s":
+                        Console.WriteLine($"{firstNumber} - {secondNumber} =  {Subtract(firstNumber, secondNumber)}");
+                        break;
+                    
+                case "m":
+                        Console.WriteLine($"{firstNumber} * {secondNumber} =  {Multiply(firstNumber, secondNumber)}");
+                        break;
+                    
+                default: 
+                    Console.WriteLine("Invalid Input"); 
+                    break;
+            };
+
         }
     }
 }
