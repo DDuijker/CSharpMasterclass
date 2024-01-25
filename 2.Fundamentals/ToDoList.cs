@@ -36,7 +36,25 @@ namespace _2.Fundamentals
             else
             {
                 Console.WriteLine("No TODO's have been added yet.");
+                return;
             }
+        }
+
+        public static bool IsDescriptionValid(string description, List<string> todos)
+        {
+            // check if input is empty
+            if (description == null || description == "" || description == " ")
+            {
+                Console.WriteLine("The description cannot be empty.");
+                return false;
+            }
+            else if (todos.Contains(description))
+            {
+                Console.WriteLine("Description must be unique");
+                return false;
+            }
+            return true;
+
         }
 
         public static void Add(List<string> todos)
@@ -47,16 +65,7 @@ namespace _2.Fundamentals
 
             while (continueAsking)
             {
-                // check if input is empty
-                if (userInput == null || userInput == "" || userInput == " ")
-                {
-                    Console.WriteLine("The description cannot be empty.");
-                }
-                else if (todos.Contains(userInput))
-                {
-                    Console.WriteLine("Description must be unique");
-                }
-                else
+                if (IsDescriptionValid(userInput, todos))
                 {
                     todos.Add(userInput);
                     Console.WriteLine($"TODO succesfully added: {userInput}");
@@ -64,40 +73,51 @@ namespace _2.Fundamentals
                 }
             }
         }
+        public static bool IsValidIndex(string userInput, out int index, List<string> todos)
+        {
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+                Console.WriteLine("Selected index cannot be empty. Please enter a valid number.");
+                index = -1;
+                return false;
+            }
+
+            if (!int.TryParse(userInput, out index))
+            {
+                Console.WriteLine("Given index is not a valid integer. Please enter a number.");
+                return false;
+            }
+
+            index -= 1; // Adjust index to match zero-based indexing
+
+            if (index < 0 || index >= todos.Count)
+            {
+                Console.WriteLine("The given index is not valid. Please enter a valid number.");
+                return false;
+            }
+
+            return true;
+        }
 
         public static void RemoveItem(List<string> todos)
         {
-            bool continueAsking = true;
-            while (continueAsking)
+            bool stop = false;
+            while (!stop)
             {
                 Console.WriteLine("Select the index of the TODO you want to remove");
                 SeeAllToDo(todos);
-                Console.WriteLine("");
-                string userInput = Console.ReadLine();
 
-                if ( userInput == "" || userInput == null)
+                if (todos.Count > 0)
                 {
-                    Console.WriteLine("Selected index cannot be empty");
-                    continue;
-                }
+                    Console.WriteLine("");
+                    string userInput = Console.ReadLine();
 
-                bool isValidInt = int.TryParse(userInput, out int index);
-                index -= 1;
-                if (isValidInt)
-                {
-                    // check if int is a valid index
-                    bool isValidIndex = index >= 0 && index < todos.Count;
-                    if (isValidIndex)
+                    if (IsValidIndex(userInput, out int index, todos))
                     {
                         Console.WriteLine($"TODO removed: {todos[index]}");
-                        todos.Remove(todos[index]);
-                        continueAsking=false;
+                        todos.RemoveAt(index);
+                        stop = true;
                     }
-                    else
-                    {
-                        Console.WriteLine("The given index is not valid.");
-                    }
-
                 }
             }
         }
