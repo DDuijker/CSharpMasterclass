@@ -23,39 +23,62 @@ namespace _2.Fundamentals
             return a * b;
         }
 
+        public static int GetNumberFromUser(string prompt)
+        {
+            int number;
+            bool isNumberValid;
+            do
+            {
+                Console.WriteLine(prompt);
+                string userInput = Console.ReadLine();
+                isNumberValid = int.TryParse(userInput, out number);
+                if (!isNumberValid)
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid number.");
+                }
+            } while (!isNumberValid);
+
+            return number;
+        }
+
         public void Start()
         {
-            Console.WriteLine("Hello!\nInput the first number:");
-            int firstNumber = int.Parse(Console.ReadLine());
-            Console.WriteLine("Input the second number:");
-            int secondNumber = int.Parse(Console.ReadLine());
-            //ask user for instructions
-            Console.WriteLine(
-                "What do you want to do with these numbers?\n" +
-                "[A]dd\n" +
-                "[S]ubtract\n" +
-                "[M]ultiply");
-
-            string userInput = Console.ReadLine().ToLower();
-            //handle the input 
-            switch (userInput)
+            bool isOn = true;
+            while (isOn)
             {
-                case "a":
+                int firstNumber = GetNumberFromUser("Input the first number:");
+                int secondNumber = GetNumberFromUser("Input the second number:");
+
+                //ask user for instructions
+                Console.WriteLine(
+                    "What do you want to do with these numbers?\n" +
+                    "[A]dd\n" +
+                    "[S]ubtract\n" +
+                    "[M]ultiply\n" +
+                    "[E]xit");
+
+                string userInput = Console.ReadLine().ToLower();
+                //handle the input 
+                switch (userInput)
+                {
+                    case "a":
                         Console.WriteLine($"{firstNumber} + {secondNumber} =  {Add(firstNumber, secondNumber)}");
                         break;
-                case "s":
+                    case "s":
                         Console.WriteLine($"{firstNumber} - {secondNumber} =  {Subtract(firstNumber, secondNumber)}");
                         break;
-                    
-                case "m":
+
+                    case "m":
                         Console.WriteLine($"{firstNumber} * {secondNumber} =  {Multiply(firstNumber, secondNumber)}");
                         break;
-                    
-                default: 
-                    Console.WriteLine("Invalid Input"); 
-                    break;
-            };
-
+                    case "e":
+                        isOn = false;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Input");
+                        break;
+                };
+            }
         }
     }
 }
